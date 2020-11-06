@@ -4,6 +4,7 @@ const { buildSchema } = require('graphql');
 const fs = require('fs');
 const cors = require(`cors`);
 const db = JSON.parse(fs.readFileSync('./data/elements_prepped.json'));
+const PORT = process.env.PORT || 3002;
 
 // Construct a schema, using GraphQL schema language
 // API Endpoints and what they return:
@@ -197,5 +198,5 @@ app.use(
     graphiql: true,
   })
 );
-app.listen(4001);
-console.log('Running a GraphQL API server at http://localhost:4001/graphql');
+app.listen(PORT);
+console.log('Running a GraphQL API server at http://localhost:${PORT}/graphql');
